@@ -1,0 +1,34 @@
+import { ElectrumxClient as EClient } from "./index";
+export default class ElectrumxClient extends EClient {
+  server_version(client_name: string, protocol_version: string): Promise<string[]>;
+  server_banner(): Promise<string>;
+  server_ping(): Promise<null>;
+  server_addPeer(features: any): Promise<boolean>;
+  serverDonation_address(): Promise<string>;
+  serverPeers_subscribe(): Promise<object[]>;
+  blockchainScripthash_getBalance(scripthash: string): Promise<object>;
+  blockchainScripthash_getHistory(scripthash: string): Promise<object[]>;
+  blockchainScripthash_history(scripthash: string, start_height: number): Promise<object[]>;
+  blockchainScripthash_utxos(scripthash: string, start_height: number): Promise<object[]>;
+  blockchainScripthash_getMempool(scripthash: string): Promise<object[]>;
+  blockchainScripthash_listunspent(scripthash: string): Promise<object[]>;
+  blockchainScripthash_subscribe(scripthash: string): Promise<string>;
+  blockchainBlock_header(height: number, cp_height: number): Promise<any>;
+  blockchainBlock_headers(start_height: number, count: number): Promise<object>;
+  blockchainEstimatefee(numBlocks: number): Promise<number>;
+  blockchainHeaders_subscribe(): Promise<object>;
+  blockchain_relayfee(): Promise<number>;
+  blockchainTransaction_broadcast(rawtx: string): Promise<string>;
+  blockchainTransaction_get(txHash: string, verbose?: boolean, merkle?: boolean): Promise<any>;
+  blockchainTransaction_getMerkle(txHash: string, height: number): Promise<object>;
+  mempool_getFeeHistogram(): Promise<any[]>;
+  blockchainBlock_getHeader(height: any): void;
+  blockchainBlock_getChunk(index: any): void;
+  blockchainAddress_getBalance(address: any): void;
+  blockchainAddress_getHistory(address: any): void;
+  blockchainAddress_getMempool(address: any): void;
+  blockchainAddress_listunspent(address: any): void;
+  blockchainAddress_subscribe(address: any): void;
+  blockchainUtxo_getAddress(tx_hash: any, index: any): void;
+  blockchainNumblocks_subscribe(): void;
+}

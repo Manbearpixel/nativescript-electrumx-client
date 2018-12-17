@@ -1,0 +1,37 @@
+{
+  "name": "nativescript-electrumx-client",
+  "version": "0.1.1",
+  "description": "An ElectrumX Client wrapper for NativeScript",
+  "main": "src/electrumx-client",
+  "typings": "src/index.d.ts",
+  "nativescript": {
+    "id": "org.nativescript.electrumx-client",
+    "platforms": {
+      "android": "5.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manbearpixel/nativescript-electrumx-client"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "Android",
+    "Blockchain",
+    "Bitcoin",
+    "ODIN",
+    "Electrum",
+    "ElectrumX",
+    "Electrum-Client"
+  ],
+  "author": {
+    "name": "Manbearpixel",
+    "url": "https://twitter.com/pixxlated"
+  },
+  "bugs": {
+    "url": "https://github.com/manbearpixel/nativescript-electrumx-client/issues"
+  },
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/manbearpixel/nativescript-electrumx-client",
+}
