@@ -1,6 +1,6 @@
 {
   "name": "nativescript-electrumx-client",
-  "version": "0.1.11",
+  "version": "0.1.14",
   "description": "An ElectrumX Client wrapper for NativeScript",
   "main": "src/electrumx-client",
   "typings": "src/index.d.ts",

@@ -1,4 +1,30 @@
-import { TcpClient } from './libs.android/tcp-client';
+import * as EventEmitter from 'events';
+
+export declare class TcpClient {
+    private client;
+    onData: {
+        (data: string): void;
+    };
+    onError: {
+        (id: number, message: string): void;
+    };
+    onFinished: {
+        (id: number): void;
+    };
+    host: string;
+    port: number;
+    callbackQueue: any;
+    status: number;
+    actions: number;
+    subscribe: EventEmitter;
+    atomicInteger: number;
+    constructor(host: string, port: number, options?: any);
+    connect(): Promise<any>;
+    close(): Promise<true | void>;
+    send(content: string): Promise<any>;
+    handleResponse(data: any): void;
+}
+
 export declare class ElectrumxClient extends TcpClient {
     constructor(host: string, port: number, options?: any);
     private _request(method, params);

@@ -5,5 +5,5 @@ android {
 }
 
 dependencies {
-    api files('SimpleNetworking.jar')
+    // api files('SimpleNetworking.jar')
 }
