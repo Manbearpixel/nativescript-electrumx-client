@@ -6,7 +6,7 @@
 
 
 
-[![NPM](https://nodei.co/npm/nativescript-electrumx-client.png?downloads=true)](https://nodei.co/npm/odinjs-lib/)
+[![NPM](https://nodei.co/npm/nativescript-electrumx-client.png?downloads=true)](https://nodei.co/npm/nativescript-electrumx-client/)
 
 
 

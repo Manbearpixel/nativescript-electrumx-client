@@ -1,3 +1,8 @@
+import { Observable, EventData } from "tns-core-modules/data/observable";
+import * as EventEmitter from 'events';
+
+declare let cz: any;
+
 /**
  * @file nativescript-simple-networking
  * @author https://github.com/yaqwsx
@@ -7,42 +12,6 @@
  * Source:  https://github.com/yaqwsx/nativescript-simple-networking
  * License: https://github.com/yaqwsx/nativescript-simple-networking/blob/master/LICENSE
  */
-declare namespace cz {
-  export namespace honzamrazek {
-    export namespace simplenetworking {
-      interface ITcpClientListener {
-        onData(data: string): void;
-        onFinished(id: number): void;
-        onError(id: number, message: string): void;
-      }
-
-      interface ITcpClientCallback {
-        onFinished(id: number): void;
-      }
-
-      export class TcpClientListener {
-        constructor(implementation: ITcpClientListener);
-        onData(data: string): void;
-        onFinished(id: number): void;
-        onError(id: number, message: string): void;
-      }
-
-      export class TcpClientCallback {
-        constructor(implementation: ITcpClientCallback);
-        onFinished(id: number): void;
-      }
-
-      export class TcpClient {
-        constructor(listener: cz.honzamrazek.simplenetworking.TcpClientListener);
-        start(serverName: string, port: number): number;
-        start(serverName: string, port: number, callback: cz.honzamrazek.simplenetworking.TcpClientCallback): number;
-        stop(): number;
-        send(data: string): number;
-        getNativeSocket(): java.net.Socket;
-      }
-    }
-  }
-}
 
 class UnexpectedResponseError extends Error {
   public rawResponse: string;
@@ -66,11 +35,8 @@ class TCPClientError extends Error {
   }
 }
 
-import { Observable, EventData } from "tns-core-modules/data/observable";
-import * as EventEmitter from 'events';
-
 export class TcpClient {
-  private client: cz.honzamrazek.simplenetworking.TcpClient;
+  private client;
 
   public onData: { (data: string): void; };
   public onError: { (id: number, message: string): void; };
