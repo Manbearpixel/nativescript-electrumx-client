@@ -5,6 +5,5 @@ android {
 }
 
 dependencies {
-    // compile name: 'SimpleNetworking'
-    implementation files('libs/SimpleNetworking.jar')
+    implementation files('SimpleNetworking.jar')
 }
