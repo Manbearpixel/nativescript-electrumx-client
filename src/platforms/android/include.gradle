@@ -11,6 +11,6 @@ repositories {
 }
 
 dependencies {
-    compile name: 'SimpleNetworking'
-    // compile files('libs/SimpleNetworking.jar')
+    // compile name: 'SimpleNetworking'
+    compile files('libs/SimpleNetworking.jar')
 }
