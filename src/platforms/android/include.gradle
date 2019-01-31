@@ -4,13 +4,7 @@ android {
 	
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 dependencies {
     // compile name: 'SimpleNetworking'
-    compile files('libs/SimpleNetworking.jar')
+    implementation files('libs/SimpleNetworking.jar')
 }
