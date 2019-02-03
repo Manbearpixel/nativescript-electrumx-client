@@ -88,6 +88,8 @@ export class TcpClient {
         dataArr.pop(); // remove last arr element (always empty)
 
         dataArr.forEach((_raw) => {
+          console.log(_raw);
+          
           try {
             let data = JSON.parse(_raw);
             if (data.id !== undefined) self.handleResponse(data);
