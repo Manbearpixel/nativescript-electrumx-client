@@ -78,7 +78,7 @@ export default class ElectrumxClient extends EClient {
     throw new Error("Not implemented");
   }
   
-  public blockchainTransaction_get(txHash: string, verbose?: boolean, merkle?: boolean): Promise<any> {
+  public blockchainTransaction_get(txHash: string, verbose?: boolean): Promise<any> {
     throw new Error("Not implemented");
   }
   

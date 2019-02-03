@@ -101,6 +101,7 @@ export class TcpClient {
 
       onError: (id, message) => {
         // if (self.onError !== null) self.onError(id, message);
+        console.log(message);
         self.subscribe.emit('error', new TCPClientError(`TCPClient encountered an issue with (#${id}):${message}`));
       },
 
@@ -114,9 +115,19 @@ export class TcpClient {
   }
 
   public async connect(): Promise<any> {
+    console.log('MAKING CONNECTION', {
+      h: this.host,
+      p: this.port
+    });
+
     let callback;
     return new Promise(async (resolve, reject) => {
       if (this.status) return resolve(true);
+
+      console.log('doing it!', {
+        h: this.host,
+        p: this.port
+      })
 
       this.status = 1;
       let id = await this.client.start(this.host, this.port);
@@ -521,10 +532,10 @@ export class ElectrumxClient extends TcpClient {
    * 
    * {@link https://electrumx.readthedocs.io/en/latest/protocol-methods.html#blockchain-transaction-get Source}
    */
-  public blockchainTransaction_get(txHash: string, verbose?: boolean, merkle?: boolean): Promise<any> {
-    return this._request('blockchain.transaction.get', [
-      txHash, (verbose ? verbose : false), (merkle ? merkle : false)
-    ]);
+  public blockchainTransaction_get(txHash: string, verbose?: boolean): Promise<any> {
+    let params: any[] = [txHash];
+    if (typeof verbose !== 'undefined') verbose = !!(verbose === true);
+    return this._request('blockchain.transaction.get', [txHash, verbose]);
   }
 
   /**

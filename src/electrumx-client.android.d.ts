@@ -1,5 +1,14 @@
+/// <reference path="node_modules/tns-platform-declarations/android.d.ts" />
 import * as EventEmitter from 'events';
-
+export declare class UnexpectedResponseError extends Error {
+    rawResponse: string;
+    constructor(rawResponse: string, ...args: any[]);
+}
+export declare class TCPClientError extends Error {
+    constructor(rawResponse: string, ...args: any[]);
+}
+export declare function makeRequest(method: string, params: object, id?: number): string;
+export declare function createPromiseResult(resolve: any, reject: any): (err: ErrorEvent, result: any) => void;
 export declare class TcpClient {
     private client;
     onData: {
@@ -24,7 +33,6 @@ export declare class TcpClient {
     send(content: string): Promise<any>;
     handleResponse(data: any): void;
 }
-
 export declare class ElectrumxClient extends TcpClient {
     constructor(host: string, port: number, options?: any);
     private _request(method, params);

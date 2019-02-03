@@ -19,7 +19,7 @@ export default class ElectrumxClient extends EClient {
     blockchainHeaders_subscribe(): Promise<object>;
     blockchain_relayfee(): Promise<number>;
     blockchainTransaction_broadcast(rawtx: string): Promise<string>;
-    blockchainTransaction_get(txHash: string, verbose?: boolean, merkle?: boolean): Promise<any>;
+    blockchainTransaction_get(txHash: string, verbose?: boolean): Promise<any>;
     blockchainTransaction_getMerkle(txHash: string, height: number): Promise<object>;
     mempool_getFeeHistogram(): Promise<any[]>;
     blockchainBlock_getHeader(height: any): void;

@@ -323,13 +323,9 @@ export declare class ElectrumxClient extends TcpClient {
    * The result is a coin-specific dictionary
    * -- whatever the coin daemon returns when asked for a verbose form of the raw transaction.
    * 
-   * **Verbose && Merkle**
-   * Result above plus an additional key: `merkle`
-   * -- `The dictionary returned by blockchain.transaction.get_merkle().`
-   * 
    * {@link https://electrumx.readthedocs.io/en/latest/protocol-methods.html#blockchain-transaction-get Source}
    */
-  public blockchainTransaction_get(txHash: string, verbose?: boolean, merkle?: boolean): Promise<any>;
+  public blockchainTransaction_get(txHash: string, verbose?: boolean): Promise<any>;
 
   /**
    * Return the merkle branch to a confirmed transaction given its hash and height.
